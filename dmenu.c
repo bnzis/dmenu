@@ -39,7 +39,7 @@ struct item {
 static char text[BUFSIZ] = "";
 static char *embed;
 static int bh, mw, mh;
-static int inputw = 0, promptw, passwd = 0;
+static int inputw = 0, promptw, passwd = 0, noinput = 0;
 static int lrpad; /* sum of left and right padding */
 static size_t cursor;
 static struct item *items = NULL;
@@ -646,7 +646,7 @@ readstdin(void)
 	size_t i, imax = 0, size = 0;
 	unsigned int tmpmax = 0;
     
-    if (passwd) {
+    if (passwd || noinput) {
         inputw = lines = 0;
         return;
     }
@@ -837,6 +837,8 @@ main(int argc, char *argv[])
 			fstrstr = cistrstr;
         } else if (!strcmp(argv[i], "-P")) /* is the input a password */
             passwd = 1;
+        else if (!strcmp(argv[i], "-n")) /* is the input empty */
+            noinput = 1;
 		else if (i + 1 == argc)
 			usage();
 		/* these options take one argument */
