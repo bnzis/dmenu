@@ -6,13 +6,13 @@ static int fuzzy = 1;
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
 /*	"IBM CGA 8x8:style=Regular:size=7",*/
-	"Terminus:size=8"
+	"JetBrains Mono:size=8"
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#bbbbbb", "#292b2e" },
-	[SchemeSel] = { "#bc6ec5", "#292b2e" },
+	[SchemeNorm] = { "#657b83", "#fdf6e3" },
+	[SchemeSel] = { "#657b83", "#eee8d5"},
 	[SchemeOut] = { "#000000", "#00ffff" },
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
